@@ -895,14 +895,13 @@ body.shake{animation:body-shake .4s}
 
 /* ============ RESPONSIVE ============ */
 @media (max-width:1100px){
-  .hero-minimal-layout{grid-template-columns:170px 1fr 170px;gap:1rem}
-  .float-poster-card{width:170px;padding:.65rem}
-  .float-poster-title{font-size:.9rem}
+  .hero-character-layout{grid-template-columns:170px 1fr 170px;gap:1rem}
+  .pillar-card{width:170px}
 }
 
 @media (max-width:960px){
-  .hero-minimal-layout{grid-template-columns:1fr;gap:2rem}
-  .hero-float-wrapper{display:none}
+  .hero-character-layout{grid-template-columns:1fr;gap:2rem}
+  .hero-pillar{display:none}
 }
 
 @media (max-width:820px){
@@ -925,8 +924,12 @@ body.shake{animation:body-shake .4s}
   .poster-row{gap:9px}
   .hero-byline{display:none}
   .marquee-item{padding:0 1rem;font-size:.64rem}
-  .cd-cards{gap:.6rem}
-  .countdown-card{padding:.8rem .9rem;min-width:68px}
+  .cd-cards{gap:.3rem; justify-content:center}
+  .countdown-card{padding:.5rem .4rem;min-width:55px}
+  .cd-num{font-size:1.35rem}
+  .countdown-sep{margin:0 1px}
+  .release-badge{padding:.6rem 1rem; line-height: 1.5; display: inline-block}
+  .hero-center-content .doom-word{font-size:clamp(2.5rem, 13vw, 4rem)}
   #timeline::before{left:15px}
   .tl-item{padding-left:44px;padding-bottom:1.8rem}
   .tl-node{left:4px;top:20px;width:22px;height:22px}
