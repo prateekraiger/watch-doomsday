@@ -155,6 +155,39 @@
     }
   })();
 
+  /* ---------- hero: real-poster backdrop + marquee ---------- */
+  (function buildHeroBackdrop() {
+    const withPosters = DOOMSDAY_TITLES.filter((t) => t.poster);
+    if (!withPosters.length) return;
+
+    function fillRow(el, items, reverseOrder) {
+      if (!el) return;
+      const order = reverseOrder ? [...items].reverse() : items;
+      // duplicate the sequence so the CSS translateX(-50%) loop is seamless
+      const doubled = order.concat(order);
+      el.innerHTML = doubled
+        .map((t) => '<img src="' + t.poster + '" alt="" loading="lazy" decoding="async">')
+        .join("");
+    }
+    fillRow($("#poster-row-a"), withPosters, false);
+    fillRow($("#poster-row-b"), withPosters, true);
+
+    const track = $("#marquee-track");
+    if (track) {
+      const items = DOOMSDAY_TITLES.concat(DOOMSDAY_TITLES); // duplicate for seamless loop
+      track.innerHTML = items
+        .map(
+          (t) =>
+            '<span class="marquee-item">' +
+              '<span class="mq-seq">' + pad(t.seq) + '</span>' +
+              "<span>" + escapeHTML(t.title) + "</span>" +
+              '<span class="mq-year">' + t.year + "</span>" +
+            "</span>"
+        )
+        .join("");
+    }
+  })();
+
   /* ---------- nav ---------- */
   const navToggle = $("#nav-toggle");
   const navLinks = $("#nav-links");

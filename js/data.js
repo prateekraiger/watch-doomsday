@@ -27,7 +27,7 @@ const DOOMSDAY_TITLES = [
     typeNote: null,
     desc: "First contact. The world learns that mutants walk among us — and that evolution has picked a side. The earliest recorded anomaly in the timeline.",
     link: "https://nepu.io/movie/x-men-2000-2000-190864",
-    poster: null
+    poster: "https://image.tmdb.org/t/p/w500/bRDAc4GogyS9ci3ow7UnInOcriN.jpg"
   },
   {
     id: "x2-x-men-united",
@@ -39,7 +39,7 @@ const DOOMSDAY_TITLES = [
     typeNote: null,
     desc: "The mutant conflict escalates. Enemies become allies as humanity's fear turns into open war. The fracture lines begin to spread.",
     link: "https://nepu.io/movie/x2-x-men-united-2003-2003-190910",
-    poster: null
+    poster: "https://image.tmdb.org/t/p/w500/bst4alFUXCxISwdRUKSMhhkrX1M.jpg"
   },
   {
     id: "captain-america-tfa",
@@ -51,7 +51,7 @@ const DOOMSDAY_TITLES = [
     typeNote: null,
     desc: "1943. A super-soldier is born, and the Tesseract enters human hands. The first Infinity Stone surfaces — the countdown quietly begins.",
     link: "https://nepu.io/movie/captain-america-the-first-avenger-2011-2011-166227",
-    poster: null
+    poster: "https://image.tmdb.org/t/p/w500/vSNxAJTlD0r02V9sPYpOjqDZXUK.jpg"
   },
   {
     id: "the-avengers",
@@ -63,7 +63,7 @@ const DOOMSDAY_TITLES = [
     typeNote: null,
     desc: "Earth's mightiest heroes assemble for the Battle of New York. Somewhere beyond the stars, a Titan takes notice.",
     link: "https://nepu.io/movie/the-avengers-2012-2012-183170",
-    poster: null
+    poster: "https://image.tmdb.org/t/p/w500/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg"
   },
   {
     id: "avengers-infinity-war",
@@ -75,7 +75,7 @@ const DOOMSDAY_TITLES = [
     typeNote: null,
     desc: "Thanos arrives. The snap erases half of all life in the universe. The single greatest catastrophe on record — until now.",
     link: "https://nepu.io/movie/avengers-infinity-war-2018-2018-203243",
-    poster: null
+    poster: "https://image.tmdb.org/t/p/w500/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg"
   },
   {
     id: "avengers-endgame",
@@ -87,7 +87,7 @@ const DOOMSDAY_TITLES = [
     typeNote: null,
     desc: "Time itself is weaponized to undo the snap. Victory — at a cost. Branch timelines splinter off. The multiverse is no longer theoretical.",
     link: "https://nepu.io/movie/avengers-endgame-2019-2019-203240",
-    poster: null
+    poster: "https://image.tmdb.org/t/p/w500/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg"
   },
   {
     id: "loki",
@@ -99,7 +99,7 @@ const DOOMSDAY_TITLES = [
     typeNote: "Seasons 1 & 2",
     desc: "The TVA, He Who Remains, and the death of the Sacred Timeline. Every variant of Kang is now loose. Every timeline is now in play.",
     link: "https://nepu.io/show/loki-2021-2021-234031",
-    poster: null
+    poster: "https://image.tmdb.org/t/p/w500/kEl2t3OhXc3Zb9FBh1AuYzRTgZp.jpg"
   },
   {
     id: "shang-chi",
@@ -111,7 +111,7 @@ const DOOMSDAY_TITLES = [
     typeNote: null,
     desc: "The Ten Rings awaken and broadcast a signal to... something. Origin unknown. Purpose unknown. Threat classification: pending.",
     link: "https://nepu.io/movie/shang-chi-and-the-legend-of-the-ten-rings-2021-2021-209450",
-    poster: null
+    poster: "https://image.tmdb.org/t/p/w500/9f2Q0U3IOsLgrI2HkvldwSABZy5.jpg"
   },
   {
     id: "spider-man-nwh",
@@ -123,7 +123,7 @@ const DOOMSDAY_TITLES = [
     typeNote: null,
     desc: "A broken spell tears holes between universes. Visitors from other realities cross over. The walls between worlds are officially failing.",
     link: "https://nepu.io/movie/spider-man-no-way-home-2021-2021-161562",
-    poster: null
+    poster: "https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
   },
   {
     id: "wakanda-forever",
@@ -135,7 +135,7 @@ const DOOMSDAY_TITLES = [
     typeNote: null,
     desc: "A kingdom mourns its king as a hidden empire rises from the deep. Vibranium is no longer Wakanda's secret alone.",
     link: "https://nepu.io/movie/black-panther-wakanda-forever-2022-2022-161438",
-    poster: null
+    poster: "https://image.tmdb.org/t/p/w500/sv1xJUazXeYqALzczSZ3O6nkH75.jpg"
   },
   {
     id: "doctor-strange-mom",
@@ -147,7 +147,7 @@ const DOOMSDAY_TITLES = [
     typeNote: null,
     desc: "Incursions confirmed. Universes can collide — and die. Strange learns the cost of dreamwalking across realities.",
     link: "https://nepu.io/movie/doctor-strange-in-the-multiverse-of-madness-2022-2022-161538",
-    poster: null
+    poster: "https://image.tmdb.org/t/p/w500/ddJcSKbcp4rKZTmuyWaMhuwcfMz.jpg"
   },
   {
     id: "deadpool-wolverine",
@@ -159,7 +159,7 @@ const DOOMSDAY_TITLES = [
     typeNote: null,
     desc: "The TVA comes knocking. Dying timelines, discarded heroes, and the Void. Worlds are being pruned — and someone is keeping score.",
     link: "https://nepu.io/movie/deadpool-and-wolverine-2024-2024-195881",
-    poster: null
+    poster: "https://image.tmdb.org/t/p/w500/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg"
   },
   {
     id: "cap-brave-new-world",
@@ -171,7 +171,7 @@ const DOOMSDAY_TITLES = [
     typeNote: null,
     desc: "A new Captain America. A celestial mass in the Indian Ocean. Adamantium changes the global balance of power overnight.",
     link: "https://nepu.io/movie/captain-america-brave-new-world-2025-2025-198185",
-    poster: null
+    poster: "https://image.tmdb.org/t/p/w500/pzIddUEMWhWzfvLI3TwxUG2wGoi.jpg"
   },
   {
     id: "thunderbolts",
@@ -183,7 +183,7 @@ const DOOMSDAY_TITLES = [
     typeNote: null,
     desc: "Misfits, assassins, and a being called the Void. A new team is forged in the dark — the world will call them something else entirely.",
     link: "https://nepu.io/movie/thunderbolts-2025-2025-199670",
-    poster: null
+    poster: "https://image.tmdb.org/t/p/w500/hqcexYHbiTBfDIdDWxrxPtVndBX.jpg"
   },
   {
     id: "fantastic-four",
@@ -195,6 +195,6 @@ const DOOMSDAY_TITLES = [
     typeNote: null,
     desc: "Another Earth. Another era. Marvel's first family faces a devourer of worlds — and their story collides with everything that comes next.",
     link: "https://nepu.io/movie/the-fantastic-four-first-steps-2025-2025-213675",
-    poster: null
+    poster: "https://image.tmdb.org/t/p/w500/nf5qaSEvyYSNeFH0YhSs5EsBLX9.jpg"
   }
 ];

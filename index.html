@@ -63,7 +63,16 @@
 
   <!-- HERO -->
   <section id="hero-section">
+    <!-- real poster backdrop, built from js/data.js -->
+    <div class="hero-backdrop" aria-hidden="true">
+      <div class="poster-row row-a" id="poster-row-a"></div>
+      <div class="poster-row row-b" id="poster-row-b"></div>
+      <div class="hero-backdrop-shade"></div>
+    </div>
+
     <div class="hero-inner">
+      <p class="hero-byline mono reveal">AN UNOFFICIAL FAN TIMELINE · NO STUDIO AFFILIATION</p>
+
       <div class="release-banner reveal">
         <span class="release-badge mono"><i class="fa-solid fa-clapperboard"></i> IN THEATERS DECEMBER 18, 2026</span>
       </div>
@@ -72,31 +81,34 @@
         <span class="doom-word reveal" data-text="DOOMSDAY">DOOMSDAY</span>
       </h1>
 
-      <!-- COUNTDOWN TIMER -->
-      <div class="hero-countdown reveal" aria-label="Countdown to Avengers: Doomsday release date">
-        <div class="countdown-card">
-          <span class="cd-num mono" id="cd-days">000</span>
-          <span class="cd-label mono">DAYS</span>
-        </div>
-        <div class="countdown-sep mono">:</div>
-        <div class="countdown-card">
-          <span class="cd-num mono" id="cd-hours">00</span>
-          <span class="cd-label mono">HOURS</span>
-        </div>
-        <div class="countdown-sep mono">:</div>
-        <div class="countdown-card">
-          <span class="cd-num mono" id="cd-mins">00</span>
-          <span class="cd-label mono">MINS</span>
-        </div>
-        <div class="countdown-sep mono">:</div>
-        <div class="countdown-card">
-          <span class="cd-num mono" id="cd-secs">00</span>
-          <span class="cd-label mono">SECS</span>
-        </div>
-      </div>
-
       <p class="hero-subtitle mono reveal">15 TITLES · ONE TIMELINE · ONE INEVITABLE END</p>
       <p class="hero-desc reveal">“The events have already begun. Follow the timeline. Watch everything in order. Find out where it leads.”</p>
+
+      <!-- COUNTDOWN TIMER -->
+      <div class="hero-countdown reveal" aria-label="Countdown to Avengers: Doomsday release date">
+        <span class="cd-caption mono">COUNTING DOWN TO RELEASE</span>
+        <div class="cd-cards">
+          <div class="countdown-card">
+            <span class="cd-num mono" id="cd-days">000</span>
+            <span class="cd-label mono">DAYS</span>
+          </div>
+          <div class="countdown-sep mono">:</div>
+          <div class="countdown-card">
+            <span class="cd-num mono" id="cd-hours">00</span>
+            <span class="cd-label mono">HOURS</span>
+          </div>
+          <div class="countdown-sep mono">:</div>
+          <div class="countdown-card">
+            <span class="cd-num mono" id="cd-mins">00</span>
+            <span class="cd-label mono">MINS</span>
+          </div>
+          <div class="countdown-sep mono">:</div>
+          <div class="countdown-card">
+            <span class="cd-num mono" id="cd-secs">00</span>
+            <span class="cd-label mono">SECS</span>
+          </div>
+        </div>
+      </div>
 
       <div class="hero-cta reveal">
         <a href="#timeline-section" id="begin-btn" class="btn-primary">
@@ -131,6 +143,12 @@
         </div>
       </div>
     </div>
+
+    <!-- cinema-marquee ticker of every title, in watch order -->
+    <div class="hero-marquee mono" aria-hidden="true">
+      <div class="marquee-track" id="marquee-track"></div>
+    </div>
+
     <div class="hero-scroll-hint mono" aria-hidden="true">▼ SCROLL TO DECRYPT ▼</div>
   </section>
 
