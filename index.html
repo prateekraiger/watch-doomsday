@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+<script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -71,20 +72,21 @@
     </div>
 
     <div class="hero-inner">
-      <div class="hero-minimal-layout">
+      <div class="hero-character-layout">
         
-        <!-- LEFT FLOATING POSTER CARD -->
-        <div class="hero-float-wrapper float-left-wrapper reveal">
-          <div class="float-poster-card" id="float-card-left" tabindex="0" role="button" aria-label="View details for featured left title">
-            <div class="float-poster-aura" id="float-aura-left"></div>
-            <div class="float-poster-img-wrap">
-              <img id="float-img-left" src="https://image.tmdb.org/t/p/w500/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg" alt="Featured Poster" loading="eager">
-              <span class="float-poster-badge mono" id="float-badge-left">PHASE 3</span>
+        <!-- LEFT CHARACTER PILLAR: IRON MAN -->
+        <div class="hero-pillar pillar-left reveal">
+          <div class="pillar-card ironman-card" id="pillar-card-left" tabindex="0" role="button" aria-label="View Iron Man Assembly Timeline">
+            <div class="pillar-aura ironman-aura"></div>
+            <div class="pillar-img-wrap">
+              <img src="https://image.tmdb.org/t/p/w780/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg" class="ironman-img" alt="Iron Man - The Origin" loading="eager">
+              <span class="pillar-badge mono">LEGACY &amp; SACRIFICE</span>
             </div>
-            <div class="float-poster-info">
-              <span class="float-poster-seq mono" id="float-seq-left">FILE 06/15</span>
-              <h3 class="float-poster-title" id="float-title-left">Avengers: Endgame</h3>
-              <span class="float-poster-action mono"><i class="fa-solid fa-expand"></i> VIEW DOSSIER</span>
+            <div class="pillar-info">
+              <span class="pillar-tag mono"><i class="fa-solid fa-shield-halved"></i> HERO ORIGIN</span>
+              <h3 class="pillar-title">IRON MAN</h3>
+              <p class="pillar-sub mono">FILE 05/15 · INFINITY WAR</p>
+              <span class="pillar-action mono">DISCOVER IN TIMELINE <i class="fa-solid fa-arrow-right"></i></span>
             </div>
           </div>
         </div>
@@ -132,32 +134,30 @@
               BEGIN JOURNEY <i class="fa-solid fa-arrow-down"></i>
             </a>
             <a href="#progress-section" class="btn-secondary mono">
-              <i class="fa-solid fa-chart-line"></i> PROGRESS
+              <i class="fa-solid fa-chart-line"></i> VIEW PROGRESS
             </a>
           </div>
 
-          <!-- MINIMAL HERO STATS & CONTROLS -->
-          <div class="hero-minimal-bar reveal">
-            <button class="float-nav-btn mono" id="hero-float-prev" title="Previous Spotlight Posters"><i class="fa-solid fa-chevron-left"></i></button>
-            <div class="hero-mini-status mono" id="threat-chip" title="Click to re-scan threat level">
-              <span class="pulse-dot green"></span> TIMELINE ACTIVE · THREAT: <strong id="threat-level">UNKNOWN</strong>
-            </div>
-            <button class="float-nav-btn mono" id="hero-float-next" title="Next Spotlight Posters"><i class="fa-solid fa-chevron-right"></i></button>
+          <!-- MINIMAL HERO STATUS BAR -->
+          <div class="hero-minimal-bar reveal" id="threat-chip" title="Click to re-scan threat level">
+            <span class="pulse-dot green"></span>
+            <span class="hero-mini-status mono">TIMELINE STATUS: <strong>ACTIVE</strong> · THREAT LEVEL: <strong id="threat-level">UNKNOWN</strong></span>
           </div>
         </div>
 
-        <!-- RIGHT FLOATING POSTER CARD -->
-        <div class="hero-float-wrapper float-right-wrapper reveal">
-          <div class="float-poster-card" id="float-card-right" tabindex="0" role="button" aria-label="View details for featured right title">
-            <div class="float-poster-aura" id="float-aura-right"></div>
-            <div class="float-poster-img-wrap">
-              <img id="float-img-right" src="https://image.tmdb.org/t/p/w500/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg" alt="Featured Poster" loading="eager">
-              <span class="float-poster-badge mono" id="float-badge-right">PHASE 5</span>
+        <!-- RIGHT CHARACTER PILLAR: DOCTOR DOOM -->
+        <div class="hero-pillar pillar-right reveal">
+          <div class="pillar-card docdoom-card" id="pillar-card-right" tabindex="0" role="button" aria-label="View Doctor Doom Incursion Timeline">
+            <div class="pillar-aura docdoom-aura"></div>
+            <div class="pillar-img-wrap">
+              <img src="https://image.tmdb.org/t/p/w780/kEl2t3OhXc3Zb9FBh1AuYzRTgZp.jpg" class="docdoom-img" alt="Doctor Doom - Doomsday" loading="eager">
+              <span class="pillar-badge mono doom-badge">MULTIVERSE THREAT</span>
             </div>
-            <div class="float-poster-info">
-              <span class="float-poster-seq mono" id="float-seq-right">FILE 12/15</span>
-              <h3 class="float-poster-title" id="float-title-right">Deadpool &amp; Wolverine</h3>
-              <span class="float-poster-action mono"><i class="fa-solid fa-expand"></i> VIEW DOSSIER</span>
+            <div class="pillar-info">
+              <span class="pillar-tag mono doom-tag"><i class="fa-solid fa-mask"></i> DESTINY</span>
+              <h3 class="pillar-title doom-title">DOCTOR DOOM</h3>
+              <p class="pillar-sub mono">FILE 12/15 · DEADPOOL &amp; WOLVERINE</p>
+              <span class="pillar-action mono doom-action">PREVIEW INCURSION <i class="fa-solid fa-arrow-right"></i></span>
             </div>
           </div>
         </div>

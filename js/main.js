@@ -519,104 +519,22 @@
 
   /* ---------- footer year ---------- */
   const footerYear = $("#footer-year");
-  if (footerYear) footerYear.textContent = "EARTH-616 · " + new Date().getFullYear();
-
-  /* ---------- HERO FLOATING POSTER SHOWCASE ---------- */
+  if (footerYear) footerYear.textContent = "EARTH-616 · "   /* ---------- HERO CHARACTER PILLAR SHOWCASE ---------- */
   function initHeroShowcase() {
-    const floatCardLeft = $("#float-card-left");
-    const floatCardRight = $("#float-card-right");
-    if (!floatCardLeft || !floatCardRight) return;
+    const pillarLeft = $("#pillar-card-left");
+    const pillarRight = $("#pillar-card-right");
+    if (!pillarLeft || !pillarRight) return;
 
-    let leftIdx = 5; // Avengers Endgame
-    let rightIdx = 11; // Deadpool & Wolverine
-    let autoInterval = null;
-
-    const imgLeft = $("#float-img-left");
-    const badgeLeft = $("#float-badge-left");
-    const seqLeft = $("#float-seq-left");
-    const titleLeft = $("#float-title-left");
-    const auraLeft = $("#float-aura-left");
-
-    const imgRight = $("#float-img-right");
-    const badgeRight = $("#float-badge-right");
-    const seqRight = $("#float-seq-right");
-    const titleRight = $("#float-title-right");
-    const auraRight = $("#float-aura-right");
-
-    function getAuraStyle(phase) {
-      const p = (phase || "").toLowerCase();
-      if (p.includes("phase 4")) return "radial-gradient(circle, rgba(140,90,255,.5) 0%, transparent 70%)";
-      if (p.includes("phase 5")) return "radial-gradient(circle, rgba(255,181,71,.5) 0%, transparent 70%)";
-      if (p.includes("legacy")) return "radial-gradient(circle, rgba(61,220,132,.45) 0%, transparent 70%)";
-      return "radial-gradient(circle, rgba(229,39,62,.5) 0%, transparent 70%)";
-    }
-
-    function updateFloatingCards() {
-      const leftItem = DOOMSDAY_TITLES[leftIdx];
-      const rightItem = DOOMSDAY_TITLES[rightIdx];
-
-      if (leftItem) {
-        if (imgLeft) {
-          imgLeft.style.opacity = "0.3";
-          setTimeout(() => { imgLeft.src = leftItem.poster; imgLeft.style.opacity = "1"; }, 150);
-        }
-        if (badgeLeft) badgeLeft.textContent = (leftItem.phase || "MCU").toUpperCase();
-        if (seqLeft) seqLeft.textContent = "FILE " + pad(leftItem.seq) + "/" + pad(TOTAL);
-        if (titleLeft) titleLeft.textContent = leftItem.title;
-        if (auraLeft) auraLeft.style.background = getAuraStyle(leftItem.phase);
-      }
-
-      if (rightItem) {
-        if (imgRight) {
-          imgRight.style.opacity = "0.3";
-          setTimeout(() => { imgRight.src = rightItem.poster; imgRight.style.opacity = "1"; }, 150);
-        }
-        if (badgeRight) badgeRight.textContent = (rightItem.phase || "MCU").toUpperCase();
-        if (seqRight) seqRight.textContent = "FILE " + pad(rightItem.seq) + "/" + pad(TOTAL);
-        if (titleRight) titleRight.textContent = rightItem.title;
-        if (auraRight) auraRight.style.background = getAuraStyle(rightItem.phase);
-      }
-    }
-
-    function nextCards() {
-      leftIdx = (leftIdx + 1) % DOOMSDAY_TITLES.length;
-      rightIdx = (rightIdx + 1) % DOOMSDAY_TITLES.length;
-      if (leftIdx === rightIdx) rightIdx = (rightIdx + 1) % DOOMSDAY_TITLES.length;
-      updateFloatingCards();
-    }
-
-    function prevCards() {
-      leftIdx = (leftIdx - 1 + DOOMSDAY_TITLES.length) % DOOMSDAY_TITLES.length;
-      rightIdx = (rightIdx - 1 + DOOMSDAY_TITLES.length) % DOOMSDAY_TITLES.length;
-      if (leftIdx === rightIdx) leftIdx = (leftIdx - 1 + DOOMSDAY_TITLES.length) % DOOMSDAY_TITLES.length;
-      updateFloatingCards();
-    }
-
-    // Auto rotate every 5.5 seconds
-    function startAuto() {
-      clearInterval(autoInterval);
-      autoInterval = setInterval(nextCards, 5500);
-    }
-    function resetAuto() {
-      startAuto();
-    }
-
-    // Prev/Next buttons
-    const btnPrev = $("#hero-float-prev");
-    const btnNext = $("#hero-float-next");
-    if (btnPrev) btnPrev.addEventListener("click", () => { prevCards(); resetAuto(); });
-    if (btnNext) btnNext.addEventListener("click", () => { nextCards(); resetAuto(); });
-
-    // Click on cards opens detail modal
-    floatCardLeft.addEventListener("click", () => {
-      openModal(DOOMSDAY_TITLES[leftIdx].id, floatCardLeft);
+    // Click on cards opens detail modal for relevant movies
+    pillarLeft.addEventListener("click", () => {
+      openModal("mcu-19", pillarLeft); // Infinity War ID
     });
-    floatCardRight.addEventListener("click", () => {
-      openModal(DOOMSDAY_TITLES[rightIdx].id, floatCardRight);
+    pillarRight.addEventListener("click", () => {
+      openModal("mcu-34", pillarRight); // Deadpool & Wolverine ID
     });
 
     // Mouse tilt effect
-    [floatCardLeft, floatCardRight].forEach((card) => {
+    [pillarLeft, pillarRight].forEach((card) => {
       card.addEventListener("mousemove", (e) => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
@@ -629,10 +547,6 @@
         card.style.transform = "";
       });
     });
-
-    window.refreshHeroShowcase = updateFloatingCards;
-    updateFloatingCards();
-    startAuto();
   }
 
   /* ---------- init ---------- */
@@ -641,4 +555,13 @@
   applyFilters();
   setupReveal();
   initHeroShowcase();
+
+  /* ---------- Lenis Smooth Scrolling ---------- */
+  if (typeof Lenis !== 'undefined') {
+    const lenis = new Lenis({
+      autoRaf: true,
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+    });
+  }
 })();

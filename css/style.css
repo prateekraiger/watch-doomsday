@@ -267,117 +267,161 @@ h2{
     radial-gradient(ellipse 80% 80% at 50% 50%, rgba(5,5,7,.12), rgba(5,5,7,.75) 85%);
 }
 
-/* ============ MINIMAL HERO LAYOUT ============ */
+/* ============ CHARACTER HERO LAYOUT ============ */
 .hero-inner{
   position:relative;z-index:1;
-  max-width:1380px;margin:0 auto;width:100%;padding:0 1.25rem;
+  max-width:1440px;margin:0 auto;width:100%;padding:0 1.25rem;
 }
-.hero-minimal-layout{
+.hero-character-layout{
   display:grid;
-  grid-template-columns:220px 1fr 220px;
-  gap:2rem;align-items:center;justify-content:center;
+  grid-template-columns:250px 1fr 250px;
+  gap:2.2rem;align-items:center;justify-content:center;
   text-align:center;
 }
 
 /* CENTER CONTENT */
 .hero-center-content{
   display:flex;flex-direction:column;align-items:center;
-  max-width:680px;margin:0 auto;
+  max-width:700px;margin:0 auto;
 }
 .hero-center-content .hero-title{align-items:center}
 .hero-center-content .doom-word{
-  font-size:clamp(3.5rem, 10vw, 7.5rem);
-  text-shadow:0 0 40px rgba(229,39,62,.7), 0 0 100px rgba(229,39,62,.4);
+  font-size:clamp(3.5rem, 9.5vw, 7.8rem);
+  text-shadow:0 0 45px rgba(229,39,62,.75), 0 0 110px rgba(229,39,62,.45);
 }
-.hero-center-content .hero-subtitle{margin-bottom:1.8rem}
+.hero-center-content .hero-subtitle{margin-bottom:1.6rem}
 .hero-center-content .hero-countdown{margin-bottom:1.8rem}
 
 .hero-minimal-bar{
-  display:flex;align-items:center;gap:1.2rem;
-  margin-top:1.5rem;padding:.55rem 1.1rem;
-  background:rgba(12,12,18,.75);border:1px solid var(--line);
-  border-radius:99px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  display:inline-flex;align-items:center;gap:.8rem;
+  margin-top:1.4rem;padding:.6rem 1.3rem;
+  background:rgba(12,12,18,.8);border:1px solid var(--line);
+  border-radius:99px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  cursor:pointer;transition:border-color .2s, box-shadow .2s;
 }
-.hero-mini-status{font-size:.72rem;color:var(--dim);letter-spacing:.12em;cursor:pointer}
-.hero-mini-status strong{color:var(--red)}
-.float-nav-btn{
-  background:none;border:none;color:var(--dim);font-size:.9rem;
-  padding:.2rem .4rem;transition:color .2s, transform .2s;
+.hero-minimal-bar:hover{
+  border-color:rgba(229,39,62,.4);box-shadow:0 0 18px rgba(229,39,62,.2);
 }
-.float-nav-btn:hover{color:var(--amber);transform:scale(1.15)}
+.hero-mini-status{font-size:.72rem;color:var(--dim);letter-spacing:.12em}
+.hero-mini-status strong{color:var(--text)}
+#threat-level{color:var(--red)}
 
-/* FLOATING 3D POSTER CARDS (LEFT & RIGHT) */
-.hero-float-wrapper{
+/* CHARACTER PILLARS (LEFT: IRON MAN, RIGHT: DOCTOR DOOM) */
+.hero-pillar{
   display:flex;justify-content:center;align-items:center;
   perspective:1000px;
 }
-.float-left-wrapper{animation:float-left 6s ease-in-out infinite}
-.float-right-wrapper{animation:float-right 7s ease-in-out infinite}
+.pillar-left{animation:float-pillar 7s ease-in-out infinite}
+.pillar-right{animation:float-pillar 7s ease-in-out infinite -3.5s}
 
-@keyframes float-left{
-  0%, 100%{transform:translateY(0px) rotate(-2deg)}
+@keyframes float-pillar{
+  0%, 100%{transform:translateY(0px) rotate(0deg)}
   50%{transform:translateY(-14px) rotate(1deg)}
 }
-@keyframes float-right{
-  0%, 100%{transform:translateY(0px) rotate(2deg)}
-  50%{transform:translateY(-16px) rotate(-1deg)}
-}
 
-.float-poster-card{
-  width:210px;border-radius:16px;padding:.85rem;
-  background:linear-gradient(145deg, rgba(22,22,34,.78), rgba(12,12,18,.88));
-  border:1px solid rgba(255,255,255,.14);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  box-shadow:0 20px 45px rgba(0,0,0,.65), 0 0 25px rgba(229,39,62,.15);
+.pillar-card{
+  width:240px;border-radius:18px;padding:.95rem;
+  background:linear-gradient(150deg, rgba(20,20,32,.85), rgba(10,10,16,.92));
+  border:1.5px solid rgba(255,255,255,.14);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  box-shadow:0 24px 50px rgba(0,0,0,.7), 0 0 30px rgba(0,0,0,.5);
   cursor:pointer;position:relative;overflow:hidden;
   transition:transform .35s cubic-bezier(.2,.8,.2,1), border-color .3s, box-shadow .3s;
 }
-.float-poster-card:hover, .float-poster-card:focus-visible{
-  transform:scale(1.06) translateY(-6px);
-  border-color:rgba(255,181,71,.55);
-  box-shadow:0 28px 60px rgba(0,0,0,.8), 0 0 35px rgba(255,181,71,.3);
+
+/* IRON MAN AURA & SPECIFIC STYLING */
+.ironman-card:hover, .ironman-card:focus-visible{
+  transform:scale(1.05) translateY(-6px);
+  border-color:rgba(229,39,62,.6);
+  box-shadow:0 30px 65px rgba(0,0,0,.85), 0 0 35px rgba(229,39,62,.35), 0 0 15px rgba(0,180,255,.3);
   outline:none;
 }
-
-.float-poster-aura{
+.ironman-aura{
   position:absolute;inset:-30%;z-index:0;
-  background:radial-gradient(circle, rgba(229,39,62,.4) 0%, transparent 70%);
-  opacity:.6;filter:blur(18px);pointer-events:none;
-  transition:background .4s ease;
+  background:radial-gradient(circle, rgba(229,39,62,.45) 0%, rgba(0,140,255,.2) 40%, transparent 75%);
+  opacity:.7;filter:blur(20px);pointer-events:none;
+  animation:pulse-arc 4s ease-in-out infinite;
+}
+@keyframes pulse-arc{
+  0%,100%{opacity:.65;transform:scale(1)}
+  50%{opacity:.85;transform:scale(1.08)}
 }
 
-.float-poster-img-wrap{
+/* DOCTOR DOOM AURA & SPECIFIC STYLING */
+.docdoom-card:hover, .docdoom-card:focus-visible{
+  transform:scale(1.05) translateY(-6px);
+  border-color:rgba(61,220,132,.6);
+  box-shadow:0 30px 65px rgba(0,0,0,.85), 0 0 35px rgba(61,220,132,.35), 0 0 15px rgba(255,181,71,.3);
+  outline:none;
+}
+.docdoom-aura{
+  position:absolute;inset:-30%;z-index:0;
+  background:radial-gradient(circle, rgba(61,220,132,.45) 0%, rgba(140,90,255,.25) 45%, transparent 75%);
+  opacity:.7;filter:blur(20px);pointer-events:none;
+  animation:pulse-doom 4.5s ease-in-out infinite;
+}
+@keyframes pulse-doom{
+  0%,100%{opacity:.65;transform:scale(1)}
+  50%{opacity:.88;transform:scale(1.08)}
+}
+
+.pillar-img-wrap{
   position:relative;width:100%;aspect-ratio:2/3;
-  border-radius:10px;overflow:hidden;
-  border:1px solid rgba(255,255,255,.1);z-index:1;
+  border-radius:12px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.12);z-index:1;
 }
-.float-poster-img-wrap img{
+.pillar-img-wrap img{
   width:100%;height:100%;object-fit:cover;
-  transition:transform .4s ease, opacity .3s ease;
+  transition:transform .45s ease, filter .45s ease;
 }
-.float-poster-card:hover img{transform:scale(1.05)}
 
-.float-poster-badge{
-  position:absolute;top:.5rem;right:.5rem;z-index:2;
-  background:rgba(5,5,7,.85);border:1px solid rgba(255,181,71,.4);
-  border-radius:4px;padding:.15rem .4rem;font-size:.55rem;color:var(--amber);
+/* Crop TMDB posters into cinematic character portraits */
+.ironman-img {
+  object-position: center 25%;
+  transform: scale(1.35);
+}
+.pillar-card:hover .ironman-img {
+  transform: scale(1.45);
+}
+
+.docdoom-img {
+  object-position: center 30%;
+  transform: scale(1.4);
+}
+.pillar-card:hover .docdoom-img {
+  transform: scale(1.5);
+}
+
+.pillar-badge{
+  position:absolute;top:.55rem;left:.55rem;z-index:2;
+  background:rgba(5,5,7,.88);border:1px solid rgba(229,39,62,.4);
+  border-radius:4px;padding:.18rem .45rem;font-size:.54rem;color:var(--text);
   backdrop-filter:blur(6px);
 }
+.pillar-badge.doom-badge{
+  border-color:rgba(61,220,132,.5);color:var(--green);
+}
 
-.float-poster-info{
-  margin-top:.7rem;text-align:left;position:relative;z-index:1;
+.pillar-info{
+  margin-top:.85rem;text-align:left;position:relative;z-index:1;
 }
-.float-poster-seq{display:block;font-size:.6rem;color:var(--red);letter-spacing:.15em;margin-bottom:.15rem}
-.float-poster-title{
-  font-family:var(--font-display);font-size:1.02rem;font-weight:600;
-  letter-spacing:.03em;color:#fff;line-height:1.15;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+.pillar-tag{
+  display:block;font-size:.58rem;color:var(--amber);letter-spacing:.14em;margin-bottom:.2rem;
 }
-.float-poster-action{
-  display:inline-block;font-size:.58rem;color:var(--dim);letter-spacing:.12em;margin-top:.35rem;
-  transition:color .2s;
+.pillar-tag.doom-tag{color:var(--green)}
+.pillar-title{
+  font-family:var(--font-display);font-size:1.15rem;font-weight:700;
+  letter-spacing:.04em;color:#fff;line-height:1.1;
 }
-.float-poster-card:hover .float-poster-action{color:var(--amber)}
+.pillar-title.doom-title{color:#fff;text-shadow:0 0 10px rgba(61,220,132,.3)}
+.pillar-sub{display:block;font-size:.62rem;color:var(--dimmer);letter-spacing:.1em;margin-top:.15rem}
+.pillar-action{
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-size:.6rem;color:var(--dim);letter-spacing:.12em;margin-top:.5rem;
+  transition:color .2s, transform .2s;
+}
+.pillar-card:hover .pillar-action{color:var(--amber);transform:translateX(3px)}
+.pillar-card:hover .doom-action{color:var(--green)}
 
 .hero-byline{
   color:var(--dimmer);font-size:.62rem;letter-spacing:.24em;margin-bottom:1.1rem;
