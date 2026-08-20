@@ -23,12 +23,18 @@
 </div>
 
 <!-- BOOT / LOADING SCREEN -->
-<div id="boot-screen" aria-hidden="true">
-  <div class="boot-inner mono">
-    <p class="boot-line">&gt; INITIALIZING ARCHIVE ACCESS...</p>
-    <p class="boot-line">&gt; DECRYPTING TIMELINE DATA...</p>
-    <p class="boot-line">&gt; CLEARANCE GRANTED — LEVEL 7</p>
-    <div class="boot-bar"><span></span></div>
+<div id="boot-screen" aria-label="Loading Doomsday Archive">
+  <div class="boot-inner">
+    <div class="boot-logo">
+      <span class="boot-icon">◈</span>
+      <div class="boot-ring"></div>
+    </div>
+    <div class="boot-title mono">AVENGERS: DOOMSDAY</div>
+    <div class="boot-status mono">
+      <span id="boot-status-text">INITIALIZING TIMELINE ARCHIVE...</span>
+      <span id="boot-percent">0%</span>
+    </div>
+    <div class="boot-bar"><span id="boot-progress-fill"></span></div>
   </div>
 </div>
 
@@ -40,7 +46,7 @@
       <span class="logo-text">ROAD TO <em>DOOMSDAY</em></span>
     </button>
     <div class="nav-status mono" aria-hidden="true">
-      <span class="pulse-dot"></span><span id="nav-clock">SYS.ONLINE</span>
+      <span class="pulse-dot"></span><span id="nav-clock">DEC 18, 2026</span>
     </div>
     <button id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
       <i class="fa-solid fa-bars-staggered"></i>
@@ -58,11 +64,37 @@
   <!-- HERO -->
   <section id="hero-section">
     <div class="hero-inner">
-      <p class="hero-classified mono reveal">/// CLASSIFIED ARCHIVE — CLEARANCE LEVEL 7 REQUIRED ///</p>
+      <div class="release-banner reveal">
+        <span class="release-badge mono"><i class="fa-solid fa-clapperboard"></i> IN THEATERS DECEMBER 18, 2026</span>
+      </div>
       <h1 class="hero-title" id="hero-title" aria-label="Road to Doomsday">
         <span class="reveal">ROAD TO</span>
         <span class="doom-word reveal" data-text="DOOMSDAY">DOOMSDAY</span>
       </h1>
+
+      <!-- COUNTDOWN TIMER -->
+      <div class="hero-countdown reveal" aria-label="Countdown to Avengers: Doomsday release date">
+        <div class="countdown-card">
+          <span class="cd-num mono" id="cd-days">000</span>
+          <span class="cd-label mono">DAYS</span>
+        </div>
+        <div class="countdown-sep mono">:</div>
+        <div class="countdown-card">
+          <span class="cd-num mono" id="cd-hours">00</span>
+          <span class="cd-label mono">HOURS</span>
+        </div>
+        <div class="countdown-sep mono">:</div>
+        <div class="countdown-card">
+          <span class="cd-num mono" id="cd-mins">00</span>
+          <span class="cd-label mono">MINS</span>
+        </div>
+        <div class="countdown-sep mono">:</div>
+        <div class="countdown-card">
+          <span class="cd-num mono" id="cd-secs">00</span>
+          <span class="cd-label mono">SECS</span>
+        </div>
+      </div>
+
       <p class="hero-subtitle mono reveal">15 TITLES · ONE TIMELINE · ONE INEVITABLE END</p>
       <p class="hero-desc reveal">“The events have already begun. Follow the timeline. Watch everything in order. Find out where it leads.”</p>
 
@@ -172,8 +204,13 @@
 </main>
 
 <footer id="site-footer">
-  <p class="mono">ROAD TO DOOMSDAY // UNOFFICIAL FAN-MADE WATCH GUIDE // NOT AFFILIATED WITH MARVEL STUDIOS</p>
-  <p class="mono footer-dim">ARCHIVE NODE 616-Δ · PROGRESS STORED LOCALLY · <span id="footer-year"></span></p>
+  <div class="footer-inner">
+    <div class="footer-logo mono">
+      <span class="logo-mark">◈</span> ROAD TO <em>DOOMSDAY</em>
+    </div>
+    <p class="footer-tagline mono">THE ULTIMATE MARVEL WATCH ORDER GUIDE</p>
+    <p class="footer-release mono"><i class="fa-solid fa-film"></i> IN THEATERS DECEMBER 18, 2026</p>
+  </div>
 </footer>
 
 <!-- DETAIL MODAL -->

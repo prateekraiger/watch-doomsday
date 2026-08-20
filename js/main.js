@@ -75,13 +75,67 @@
     }[c]));
   }
 
-  /* ---------- boot screen ---------- */
+  /* ---------- boot screen loader ---------- */
   const boot = $("#boot-screen");
-  window.addEventListener("load", () => {
-    setTimeout(() => boot.classList.add("done"), 1500);
-  });
-  // safety: never trap the user behind the boot screen
-  setTimeout(() => boot.classList.add("done"), 3500);
+  const bootPercent = $("#boot-percent");
+  const bootFill = $("#boot-progress-fill");
+  const bootStatus = $("#boot-status-text");
+
+  let progressVal = 0;
+  const loaderInterval = setInterval(() => {
+    progressVal += Math.floor(Math.random() * 12) + 8;
+    if (progressVal >= 100) {
+      progressVal = 100;
+      clearInterval(loaderInterval);
+      if (bootPercent) bootPercent.textContent = "100%";
+      if (bootFill) bootFill.style.width = "100%";
+      if (bootStatus) bootStatus.textContent = "TIMELINE READY";
+      setTimeout(() => boot && boot.classList.add("done"), 350);
+    } else {
+      if (bootPercent) bootPercent.textContent = progressVal + "%";
+      if (bootFill) bootFill.style.width = progressVal + "%";
+    }
+  }, 75);
+
+  setTimeout(() => {
+    if (boot && !boot.classList.contains("done")) {
+      boot.classList.add("done");
+    }
+  }, 2200);
+
+  /* ---------- release countdown ---------- */
+  const TARGET_DATE = new Date("2026-12-18T00:00:00Z").getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const diff = TARGET_DATE - now;
+
+    if (diff <= 0) {
+      if ($("#cd-days")) $("#cd-days").textContent = "00";
+      if ($("#cd-hours")) $("#cd-hours").textContent = "00";
+      if ($("#cd-mins")) $("#cd-mins").textContent = "00";
+      if ($("#cd-secs")) $("#cd-secs").textContent = "00";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+    if ($("#cd-days")) $("#cd-days").textContent = pad(days);
+    if ($("#cd-hours")) $("#cd-hours").textContent = pad(hours);
+    if ($("#cd-mins")) $("#cd-mins").textContent = pad(mins);
+    if ($("#cd-secs")) $("#cd-secs").textContent = pad(secs);
+
+    const navClock = $("#nav-clock");
+    if (navClock) {
+      navClock.textContent = days + "D " + pad(hours) + "H TO DOOMSDAY";
+    }
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 
   /* ---------- particles ---------- */
   (function spawnParticles() {
@@ -112,14 +166,6 @@
       navToggle.setAttribute("aria-expanded", "false");
     }
   });
-
-  // fake system clock in nav
-  const navClock = $("#nav-clock");
-  setInterval(() => {
-    const d = new Date();
-    navClock.textContent =
-      "T-MINUS " + pad(23 - d.getHours()) + ":" + pad(59 - d.getMinutes()) + ":" + pad(59 - d.getSeconds());
-  }, 1000);
 
   /* ---------- threat level chip ---------- */
   const THREATS = ["UNKNOWN", "ELEVATED", "SEVERE", "CRITICAL", "REDACTED", "…HE SEES YOU"];
@@ -432,7 +478,8 @@
   }
 
   /* ---------- footer year ---------- */
-  $("#footer-year").textContent = "EARTH-616 · " + new Date().getFullYear();
+  const footerYear = $("#footer-year");
+  if (footerYear) footerYear.textContent = "EARTH-616 · " + new Date().getFullYear();
 
   /* ---------- init ---------- */
   renderTimeline();
