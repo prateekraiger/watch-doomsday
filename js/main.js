@@ -508,13 +508,9 @@
           io.unobserve(en.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: "0px 0px -30px 0px" });
+    }, { threshold: 0.05, rootMargin: "0px 0px -50px 0px" });
+    
     $$(".reveal").forEach((el) => io.observe(el));
-    // safety net: never leave content permanently invisible
-    setTimeout(() => {
-      $$(".reveal:not(.visible)").forEach((el) => el.classList.add("visible"));
-      setTimeout(() => document.body.classList.add("reveal-settled"), 900);
-    }, 2500);
   }
 
   /* ---------- footer year ---------- */
