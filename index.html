@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROAD TO DOOMSDAY — Classified Timeline Archive</title>
+<meta name="description" content="15 titles. One timeline. One inevitable end. Follow the classified watch-order leading to Doomsday.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ATMOSPHERE LAYERS -->
+<div class="atmosphere" aria-hidden="true">
+  <div class="atmo-gradient"></div>
+  <div class="atmo-grid"></div>
+  <div id="particles"></div>
+  <div class="grain"></div>
+  <div class="scanline"></div>
+</div>
+
+<!-- BOOT / LOADING SCREEN -->
+<div id="boot-screen" aria-hidden="true">
+  <div class="boot-inner mono">
+    <p class="boot-line">&gt; INITIALIZING ARCHIVE ACCESS...</p>
+    <p class="boot-line">&gt; DECRYPTING TIMELINE DATA...</p>
+    <p class="boot-line">&gt; CLEARANCE GRANTED — LEVEL 7</p>
+    <div class="boot-bar"><span></span></div>
+  </div>
+</div>
+
+<!-- NAVIGATION -->
+<header id="site-nav">
+  <nav class="nav-inner" aria-label="Main navigation">
+    <button id="logo-btn" class="nav-logo" title="ROAD TO DOOMSDAY" aria-label="Road to Doomsday — home">
+      <span class="logo-mark mono">◈</span>
+      <span class="logo-text">ROAD TO <em>DOOMSDAY</em></span>
+    </button>
+    <div class="nav-status mono" aria-hidden="true">
+      <span class="pulse-dot"></span><span id="nav-clock">SYS.ONLINE</span>
+    </div>
+    <button id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <i class="fa-solid fa-bars-staggered"></i>
+    </button>
+    <ul id="nav-links">
+      <li><a href="#timeline-section" class="nav-link mono">TIMELINE</a></li>
+      <li><a href="#progress-section" class="nav-link mono">PROGRESS</a></li>
+      <li><a href="#about-section" class="nav-link mono">ABOUT</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section id="hero-section">
+    <div class="hero-inner">
+      <p class="hero-classified mono reveal">/// CLASSIFIED ARCHIVE — CLEARANCE LEVEL 7 REQUIRED ///</p>
+      <h1 class="hero-title" id="hero-title" aria-label="Road to Doomsday">
+        <span class="reveal">ROAD TO</span>
+        <span class="doom-word reveal" data-text="DOOMSDAY">DOOMSDAY</span>
+      </h1>
+      <p class="hero-subtitle mono reveal">15 TITLES · ONE TIMELINE · ONE INEVITABLE END</p>
+      <p class="hero-desc reveal">“The events have already begun. Follow the timeline. Watch everything in order. Find out where it leads.”</p>
+
+      <div class="hero-cta reveal">
+        <a href="#timeline-section" id="begin-btn" class="btn-primary">
+          BEGIN THE JOURNEY <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="hero-status reveal" role="status">
+        <div class="status-chip mono">
+          <span class="pulse-dot green"></span> SYSTEM STATUS: <strong>TIMELINE ACTIVE</strong>
+        </div>
+        <div class="status-chip mono threat" id="threat-chip" title="Click to re-scan">
+          <span class="pulse-dot red"></span> THREAT LEVEL: <strong id="threat-level">UNKNOWN</strong>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint mono" aria-hidden="true">▼ SCROLL TO DECRYPT ▼</div>
+  </section>
+
+  <!-- PROGRESS DASHBOARD -->
+  <section id="progress-section" aria-labelledby="progress-heading">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <span class="section-tag mono">// MISSION STATUS</span>
+        <h2 id="progress-heading">JOURNEY PROGRESS</h2>
+      </div>
+
+      <div class="progress-panel glass reveal">
+        <div class="progress-readout">
+          <div class="progress-count mono"><span id="completed-count">0</span> / 15 COMPLETED</div>
+          <div class="progress-percent mono" id="progress-percent">0%</div>
+        </div>
+        <div class="progress-track" role="progressbar" aria-label="Journey progress" aria-valuemin="0" aria-valuemax="15" aria-valuenow="0" id="progress-track">
+          <div class="progress-fill" id="progress-fill"><span class="progress-spark"></span></div>
+          <div class="progress-ticks" aria-hidden="true"></div>
+        </div>
+        <p class="progress-note mono" id="progress-note">AWAITING FIRST TRANSMISSION…</p>
+      </div>
+
+      <!-- NEXT DESTINATION -->
+      <div id="next-destination" class="glass reveal" hidden>
+        <div class="next-label mono">▸ YOUR NEXT DESTINATION</div>
+        <div class="next-body">
+          <div class="next-text">
+            <p class="next-lead">Continue your journey with</p>
+            <h3 id="next-title">—</h3>
+            <p class="next-meta mono" id="next-meta"></p>
+          </div>
+          <button id="continue-btn" class="btn-primary">CONTINUE <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline-section" aria-labelledby="timeline-heading">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <span class="section-tag mono">// EVENT SEQUENCE — CHRONOLOGICAL ORDER MANDATORY</span>
+        <h2 id="timeline-heading">THE TIMELINE</h2>
+      </div>
+
+      <!-- SEARCH + FILTERS -->
+      <div class="controls glass reveal">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input type="search" id="search-input" placeholder="SEARCH THE ARCHIVE…" aria-label="Search titles" autocomplete="off">
+        </div>
+        <div class="filter-group" role="group" aria-label="Filter titles">
+          <button class="filter-btn mono active" data-filter="all">ALL</button>
+          <button class="filter-btn mono" data-filter="movies">MOVIES</button>
+          <button class="filter-btn mono" data-filter="series">SERIES</button>
+          <button class="filter-btn mono" data-filter="completed">COMPLETED</button>
+          <button class="filter-btn mono" data-filter="remaining">REMAINING</button>
+        </div>
+      </div>
+
+      <ol id="timeline" aria-label="Watch order timeline"><!-- rendered by JS --></ol>
+
+      <div id="empty-state" class="glass mono" hidden>
+        <i class="fa-solid fa-satellite-dish"></i>
+        <p>NO RECORDS MATCH YOUR QUERY.</p>
+        <p class="empty-sub">THE ARCHIVE HIDES NOTHING — ADJUST YOUR SEARCH PARAMETERS.</p>
+      </div>
+
+      <div class="timeline-end reveal" aria-hidden="true">
+        <div class="end-node"></div>
+        <p class="mono end-text">/// END OF KNOWN TIMELINE — <span class="danger">DOOMSDAY APPROACHES</span> ///</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about-section" aria-labelledby="about-heading">
+    <div class="section-inner">
+      <div class="about-panel glass reveal">
+        <span class="section-tag mono">// DOSSIER</span>
+        <h2 id="about-heading">WHAT IS ROAD TO DOOMSDAY?</h2>
+        <p class="about-quote">“A curated cinematic journey through the stories, characters, timelines, and universes that lead toward the next great Marvel event.”</p>
+        <p class="about-detail">No account. No tracking. Your progress is stored only on this device. Watch in order — or don't. The timeline converges either way.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="site-footer">
+  <p class="mono">ROAD TO DOOMSDAY // UNOFFICIAL FAN-MADE WATCH GUIDE // NOT AFFILIATED WITH MARVEL STUDIOS</p>
+  <p class="mono footer-dim">ARCHIVE NODE 616-Δ · PROGRESS STORED LOCALLY · <span id="footer-year"></span></p>
+</footer>
+
+<!-- DETAIL MODAL -->
+<div id="modal-backdrop" hidden>
+  <div id="detail-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+    <button id="modal-close" aria-label="Close details"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-grid">
+      <div class="modal-poster" id="modal-poster"><!-- poster injected --></div>
+      <div class="modal-info">
+        <div class="modal-seq mono" id="modal-seq">FILE 01/15</div>
+        <h3 id="modal-title">—</h3>
+        <div class="modal-meta mono" id="modal-meta"></div>
+        <p id="modal-desc"></p>
+        <div class="modal-status mono" id="modal-status-label"></div>
+        <div class="modal-actions">
+          <a id="modal-watch" class="btn-primary" href="#" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-play"></i> WATCH NOW
+          </a>
+          <div class="status-toggle" role="group" aria-label="Watch status" id="modal-toggle">
+            <button data-status="unwatched" class="mono">NOT WATCHED</button>
+            <button data-status="watching" class="mono">WATCHING</button>
+            <button data-status="completed" class="mono">COMPLETED</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SYSTEM BREACH EASTER EGG -->
+<div id="breach-overlay" hidden aria-hidden="true">
+  <div class="breach-inner mono">
+    <p class="breach-warn glitch" data-text="⚠ SYSTEM BREACH DETECTED">⚠ SYSTEM BREACH DETECTED</p>
+    <p class="breach-line">&gt; UNAUTHORIZED ACCESS — NODE 616-Δ</p>
+    <p class="breach-line">&gt; TRACING SIGNAL…</p>
+    <p class="breach-msg glitch" data-text="“You weren't supposed to find this.”">“You weren't supposed to find this.”</p>
+    <p class="breach-line breach-hint">&gt; HE IS ALREADY HERE. THE TIMELINE WAS NEVER YOURS.</p>
+    <button id="breach-close" class="btn-primary mono">PURGE LOG &amp; RETURN</button>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
