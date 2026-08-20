@@ -519,7 +519,9 @@
 
   /* ---------- footer year ---------- */
   const footerYear = $("#footer-year");
-  if (footerYear) footerYear.textContent = "EARTH-616 · "   /* ---------- HERO CHARACTER PILLAR SHOWCASE ---------- */
+  if (footerYear) footerYear.textContent = "EARTH-616 · " + new Date().getFullYear();
+
+  /* ---------- HERO CHARACTER PILLAR SHOWCASE ---------- */
   function initHeroShowcase() {
     const pillarLeft = $("#pillar-card-left");
     const pillarRight = $("#pillar-card-right");
@@ -556,12 +558,4 @@
   setupReveal();
   initHeroShowcase();
 
-  /* ---------- Lenis Smooth Scrolling ---------- */
-  if (typeof Lenis !== 'undefined') {
-    const lenis = new Lenis({
-      autoRaf: true,
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-    });
-  }
 })();
