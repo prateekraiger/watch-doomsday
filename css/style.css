@@ -216,6 +216,32 @@ h2{
 .btn-primary i{transition:transform .2s}
 .btn-primary:hover i{transform:translateX(4px)}
 
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-family:var(--font-mono);font-size:.82rem;letter-spacing:.1em;
+  color:var(--text);text-decoration:none;
+  background:rgba(255,255,255,.05);border:1px solid var(--line);
+  border-radius:10px;padding:.85rem 1.4rem;
+  transition:all .2s ease;
+}
+.btn-secondary:hover,.btn-secondary:focus-visible{
+  background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3);
+  transform:translateY(-2px);color:#fff;
+}
+
+.hero-cta{display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:2rem}
+
+.hero-stats-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;
+  max-width:540px;width:100%;margin:0 auto 2.2rem;
+}
+.stat-card{
+  padding:.8rem 1rem;text-align:center;
+  border-color:rgba(255,255,255,.07);
+}
+.stat-val{display:block;font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--amber)}
+.stat-lbl{display:block;font-size:.58rem;color:var(--dim);letter-spacing:.12em}
+
 /* reveal on scroll */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:none}
@@ -432,16 +458,32 @@ h2{
 .poster img{width:100%;height:100%;object-fit:cover}
 .poster-ph{
   width:100%;height:100%;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;
+  display:flex;flex-direction:column;justify-content:space-between;
   background:
-    repeating-linear-gradient(45deg,transparent 0 14px,rgba(255,255,255,.02) 14px 28px),
-    radial-gradient(ellipse at 50% 30%, rgba(229,39,62,.22), transparent 70%),
-    linear-gradient(180deg,#181820,#0c0c12);
-  color:var(--dimmer);text-align:center;padding:.6rem;
+    radial-gradient(ellipse at 50% 0%, rgba(229,39,62,.28), transparent 70%),
+    linear-gradient(180deg,#1c1b26,#0a0a10);
+  color:var(--text);text-align:center;padding:.75rem .6rem;
+  position:relative;border:1px solid rgba(255,255,255,.08);
 }
-.poster-ph .ph-seq{font-family:var(--font-display);font-size:1.9rem;font-weight:700;color:rgba(255,255,255,.16)}
-.poster-ph .ph-label{font-family:var(--font-mono);font-size:.52rem;letter-spacing:.2em;color:var(--dimmer)}
-.poster-ph i{color:rgba(229,39,62,.5);font-size:1.1rem}
+.poster-ph.phase-4{
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(185,160,255,.35), transparent 70%),
+    linear-gradient(180deg,#181428,#0a0912);
+}
+.poster-ph.phase-5{
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255,181,71,.32), transparent 70%),
+    linear-gradient(180deg,#241a12,#0c0a08);
+}
+.poster-ph.legacy{
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(61,220,132,.3), transparent 70%),
+    linear-gradient(180deg,#102219,#080f0b);
+}
+.ph-top{display:flex;justify-content:space-between;align-items:center;font-size:.65rem;color:var(--amber)}
+.ph-phase{font-size:.55rem;letter-spacing:.12em;background:rgba(0,0,0,.5);padding:.15rem .4rem;border-radius:4px}
+.poster-ph .ph-seq{font-family:var(--font-display);font-size:2.4rem;font-weight:700;line-height:1;color:rgba(255,255,255,.2);margin:auto 0}
+.poster-ph .ph-title{font-family:var(--font-display);font-size:.78rem;font-weight:600;letter-spacing:.04em;color:#fff;line-height:1.15;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
 /* card body */
 .tl-body{display:flex;flex-direction:column;min-width:0}
@@ -451,7 +493,8 @@ h2{
   font-family:var(--font-mono);font-size:.58rem;letter-spacing:.14em;
   border:1px solid var(--line);border-radius:5px;padding:.18rem .5rem;color:var(--dim);
 }
-.tl-badge.series{border-color:rgba(140,90,255,.45);color:#b9a0ff}
+.tl-badge.phase{border-color:rgba(255,181,71,.4);color:var(--amber);background:rgba(255,181,71,.08)}
+.tl-badge.series{border-color:rgba(140,90,255,.45);color:#b9a0ff;background:rgba(140,90,255,.08)}
 .tl-badge.movie{border-color:rgba(255,255,255,.14)}
 .tl-year{font-family:var(--font-mono);font-size:.68rem;color:var(--dimmer)}
 .tl-title{

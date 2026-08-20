@@ -60,11 +60,13 @@
     if (item.poster) {
       return '<img src="' + item.poster + '" alt="' + escapeHTML(item.title) + ' poster" loading="lazy">';
     }
+    const iconClass = item.type === "Series" ? "fa-tv" : "fa-film";
+    const phaseLabel = item.phase || "MCU";
     return (
-      '<div class="poster-ph" aria-hidden="true">' +
+      '<div class="poster-ph ' + (item.phase ? item.phase.toLowerCase().replace(" ", "-") : "") + '" aria-hidden="true">' +
+        '<div class="ph-top"><span class="ph-phase mono">' + phaseLabel + '</span><i class="fa-solid ' + iconClass + '"></i></div>' +
         '<span class="ph-seq">' + pad(item.seq) + "</span>" +
-        '<i class="fa-solid fa-file-shield"></i>' +
-        '<span class="ph-label">VISUAL RECORD<br>' + (large ? "AWAITING UPLOAD" : "CLASSIFIED") + "</span>" +
+        '<span class="ph-title">' + escapeHTML(item.title) + '</span>' +
       "</div>"
     );
   }
@@ -183,6 +185,7 @@
   function renderTimeline() {
     timelineEl.innerHTML = DOOMSDAY_TITLES.map((item) => {
       const typeLabel = item.type.toUpperCase() + (item.typeNote ? " · " + item.typeNote.toUpperCase() : "");
+      const phaseBadge = item.phase ? '<span class="tl-badge phase">' + item.phase.toUpperCase() + '</span>' : '';
       return (
         '<li class="tl-item reveal" data-id="' + item.id + '" data-state="unwatched">' +
           '<div class="tl-node mono"><span>' + pad(item.seq) + "</span></div>" +
@@ -191,7 +194,8 @@
             '<div class="poster">' + posterHTML(item, false) + "</div>" +
             '<div class="tl-body">' +
               '<div class="tl-meta">' +
-                '<span class="tl-seq">FILE ' + pad(item.seq) + "/" + pad(TOTAL) + "</span>" +
+                '<span class="tl-seq">ENTRY ' + pad(item.seq) + "/" + pad(TOTAL) + "</span>" +
+                phaseBadge +
                 '<span class="tl-badge ' + item.type.toLowerCase() + '">' + typeLabel + "</span>" +
                 '<span class="tl-year">' + item.year + "</span>" +
               "</div>" +
@@ -335,11 +339,13 @@
 
       if (activeFilter === "movies") show = item.type === "Movie";
       else if (activeFilter === "series") show = item.type === "Series";
+      else if (activeFilter === "phase4") show = item.phase === "Phase 4";
+      else if (activeFilter === "phase5") show = item.phase === "Phase 5";
       else if (activeFilter === "completed") show = state === "completed";
       else if (activeFilter === "remaining") show = state !== "completed";
 
       if (show && searchQuery) {
-        const hay = (item.title + " " + item.year + " " + item.type).toLowerCase();
+        const hay = (item.title + " " + item.year + " " + item.type + " " + (item.phase || "")).toLowerCase();
         show = hay.includes(searchQuery);
       }
       li.classList.toggle("hidden-by-filter", !show);
