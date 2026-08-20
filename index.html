@@ -71,76 +71,97 @@
     </div>
 
     <div class="hero-inner">
-      <p class="hero-byline mono reveal">AN UNOFFICIAL FAN TIMELINE · NO STUDIO AFFILIATION</p>
-
-      <div class="release-banner reveal">
-        <span class="release-badge mono"><i class="fa-solid fa-clapperboard"></i> IN THEATERS DECEMBER 18, 2026</span>
-      </div>
-      <h1 class="hero-title" id="hero-title" aria-label="Road to Doomsday">
-        <span class="reveal">ROAD TO</span>
-        <span class="doom-word reveal" data-text="DOOMSDAY">DOOMSDAY</span>
-      </h1>
-
-      <p class="hero-subtitle mono reveal">15 TITLES · ONE TIMELINE · ONE INEVITABLE END</p>
-      <p class="hero-desc reveal">“The events have already begun. Follow the timeline. Watch everything in order. Find out where it leads.”</p>
-
-      <!-- COUNTDOWN TIMER -->
-      <div class="hero-countdown reveal" aria-label="Countdown to Avengers: Doomsday release date">
-        <span class="cd-caption mono">COUNTING DOWN TO RELEASE</span>
-        <div class="cd-cards">
-          <div class="countdown-card">
-            <span class="cd-num mono" id="cd-days">000</span>
-            <span class="cd-label mono">DAYS</span>
-          </div>
-          <div class="countdown-sep mono">:</div>
-          <div class="countdown-card">
-            <span class="cd-num mono" id="cd-hours">00</span>
-            <span class="cd-label mono">HOURS</span>
-          </div>
-          <div class="countdown-sep mono">:</div>
-          <div class="countdown-card">
-            <span class="cd-num mono" id="cd-mins">00</span>
-            <span class="cd-label mono">MINS</span>
-          </div>
-          <div class="countdown-sep mono">:</div>
-          <div class="countdown-card">
-            <span class="cd-num mono" id="cd-secs">00</span>
-            <span class="cd-label mono">SECS</span>
+      <div class="hero-minimal-layout">
+        
+        <!-- LEFT FLOATING POSTER CARD -->
+        <div class="hero-float-wrapper float-left-wrapper reveal">
+          <div class="float-poster-card" id="float-card-left" tabindex="0" role="button" aria-label="View details for featured left title">
+            <div class="float-poster-aura" id="float-aura-left"></div>
+            <div class="float-poster-img-wrap">
+              <img id="float-img-left" src="https://image.tmdb.org/t/p/w500/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg" alt="Featured Poster" loading="eager">
+              <span class="float-poster-badge mono" id="float-badge-left">PHASE 3</span>
+            </div>
+            <div class="float-poster-info">
+              <span class="float-poster-seq mono" id="float-seq-left">FILE 06/15</span>
+              <h3 class="float-poster-title" id="float-title-left">Avengers: Endgame</h3>
+              <span class="float-poster-action mono"><i class="fa-solid fa-expand"></i> VIEW DOSSIER</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="hero-cta reveal">
-        <a href="#timeline-section" id="begin-btn" class="btn-primary">
-          BEGIN THE JOURNEY <i class="fa-solid fa-arrow-right"></i>
-        </a>
-        <a href="#progress-section" class="btn-secondary mono">
-          <i class="fa-solid fa-chart-line"></i> VIEW PROGRESS
-        </a>
-      </div>
+        <!-- CENTER MINIMAL HERO CONTENT -->
+        <div class="hero-center-content">
+          <div class="release-banner reveal">
+            <span class="release-badge mono"><i class="fa-solid fa-clapperboard"></i> IN THEATERS DECEMBER 18, 2026</span>
+          </div>
 
-      <div class="hero-stats-grid reveal">
-        <div class="stat-card glass">
-          <span class="stat-val mono">15</span>
-          <span class="stat-lbl mono">ESSENTIAL TITLES</span>
-        </div>
-        <div class="stat-card glass">
-          <span class="stat-val mono">3</span>
-          <span class="stat-lbl mono">MARVEL PHASES</span>
-        </div>
-        <div class="stat-card glass">
-          <span class="stat-val mono">100%</span>
-          <span class="stat-lbl mono">LOCAL PROGRESS</span>
-        </div>
-      </div>
+          <h1 class="hero-title" id="hero-title" aria-label="Road to Doomsday">
+            <span class="reveal">ROAD TO</span>
+            <span class="doom-word reveal" data-text="DOOMSDAY">DOOMSDAY</span>
+          </h1>
 
-      <div class="hero-status reveal" role="status">
-        <div class="status-chip mono">
-          <span class="pulse-dot green"></span> TIMELINE STATUS: <strong>ACTIVE</strong>
+          <p class="hero-subtitle mono reveal">15 TITLES · ONE TIMELINE · ONE INEVITABLE END</p>
+
+          <!-- COUNTDOWN TIMER -->
+          <div class="hero-countdown reveal" aria-label="Countdown to Avengers: Doomsday release date">
+            <div class="cd-cards">
+              <div class="countdown-card">
+                <span class="cd-num mono" id="cd-days">000</span>
+                <span class="cd-label mono">DAYS</span>
+              </div>
+              <div class="countdown-sep mono">:</div>
+              <div class="countdown-card">
+                <span class="cd-num mono" id="cd-hours">00</span>
+                <span class="cd-label mono">HOURS</span>
+              </div>
+              <div class="countdown-sep mono">:</div>
+              <div class="countdown-card">
+                <span class="cd-num mono" id="cd-mins">00</span>
+                <span class="cd-label mono">MINS</span>
+              </div>
+              <div class="countdown-sep mono">:</div>
+              <div class="countdown-card">
+                <span class="cd-num mono" id="cd-secs">00</span>
+                <span class="cd-label mono">SECS</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-cta reveal">
+            <a href="#timeline-section" id="begin-btn" class="btn-primary">
+              BEGIN JOURNEY <i class="fa-solid fa-arrow-down"></i>
+            </a>
+            <a href="#progress-section" class="btn-secondary mono">
+              <i class="fa-solid fa-chart-line"></i> PROGRESS
+            </a>
+          </div>
+
+          <!-- MINIMAL HERO STATS & CONTROLS -->
+          <div class="hero-minimal-bar reveal">
+            <button class="float-nav-btn mono" id="hero-float-prev" title="Previous Spotlight Posters"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="hero-mini-status mono" id="threat-chip" title="Click to re-scan threat level">
+              <span class="pulse-dot green"></span> TIMELINE ACTIVE · THREAT: <strong id="threat-level">UNKNOWN</strong>
+            </div>
+            <button class="float-nav-btn mono" id="hero-float-next" title="Next Spotlight Posters"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
         </div>
-        <div class="status-chip mono threat" id="threat-chip" title="Click to re-scan">
-          <span class="pulse-dot red"></span> THREAT LEVEL: <strong id="threat-level">UNKNOWN</strong>
+
+        <!-- RIGHT FLOATING POSTER CARD -->
+        <div class="hero-float-wrapper float-right-wrapper reveal">
+          <div class="float-poster-card" id="float-card-right" tabindex="0" role="button" aria-label="View details for featured right title">
+            <div class="float-poster-aura" id="float-aura-right"></div>
+            <div class="float-poster-img-wrap">
+              <img id="float-img-right" src="https://image.tmdb.org/t/p/w500/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg" alt="Featured Poster" loading="eager">
+              <span class="float-poster-badge mono" id="float-badge-right">PHASE 5</span>
+            </div>
+            <div class="float-poster-info">
+              <span class="float-poster-seq mono" id="float-seq-right">FILE 12/15</span>
+              <h3 class="float-poster-title" id="float-title-right">Deadpool &amp; Wolverine</h3>
+              <span class="float-poster-action mono"><i class="fa-solid fa-expand"></i> VIEW DOSSIER</span>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
 

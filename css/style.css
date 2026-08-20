@@ -256,30 +256,128 @@ h2{
 
 /* real-poster backdrop collage, built from js/data.js at runtime */
 .hero-backdrop{position:absolute;inset:0;z-index:0;overflow:hidden}
+/* ============ HERO BACKDROP & VISIBILITY ============ */
 .poster-row{
-  display:flex;gap:14px;position:absolute;left:0;width:max-content;
-  filter:saturate(.75) brightness(.55);
-  will-change:transform;
+  filter:saturate(.92) brightness(.82);
 }
-.poster-row img{
-  width:150px;aspect-ratio:2/3;object-fit:cover;border-radius:10px;
-  border:1px solid rgba(255,255,255,.06);flex-shrink:0;
-}
-.row-a{top:-4%;animation:drift-left 90s linear infinite}
-.row-b{top:52%;animation:drift-right 105s linear infinite}
-@keyframes drift-left{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@keyframes drift-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 .hero-backdrop-shade{
   position:absolute;inset:0;
   background:
-    linear-gradient(180deg, var(--bg) 0%, rgba(5,5,7,.55) 22%, rgba(5,5,7,.72) 55%, var(--bg) 100%),
-    radial-gradient(ellipse 75% 65% at 50% 45%, rgba(5,5,7,.35), rgba(5,5,7,.92) 78%);
-}
-@media (prefers-reduced-motion:reduce){
-  .poster-row{animation:none !important}
+    linear-gradient(180deg, var(--bg) 0%, rgba(5,5,7,.25) 30%, rgba(5,5,7,.38) 70%, var(--bg) 100%),
+    radial-gradient(ellipse 80% 80% at 50% 50%, rgba(5,5,7,.12), rgba(5,5,7,.75) 85%);
 }
 
-.hero-inner{position:relative;z-index:1}
+/* ============ MINIMAL HERO LAYOUT ============ */
+.hero-inner{
+  position:relative;z-index:1;
+  max-width:1380px;margin:0 auto;width:100%;padding:0 1.25rem;
+}
+.hero-minimal-layout{
+  display:grid;
+  grid-template-columns:220px 1fr 220px;
+  gap:2rem;align-items:center;justify-content:center;
+  text-align:center;
+}
+
+/* CENTER CONTENT */
+.hero-center-content{
+  display:flex;flex-direction:column;align-items:center;
+  max-width:680px;margin:0 auto;
+}
+.hero-center-content .hero-title{align-items:center}
+.hero-center-content .doom-word{
+  font-size:clamp(3.5rem, 10vw, 7.5rem);
+  text-shadow:0 0 40px rgba(229,39,62,.7), 0 0 100px rgba(229,39,62,.4);
+}
+.hero-center-content .hero-subtitle{margin-bottom:1.8rem}
+.hero-center-content .hero-countdown{margin-bottom:1.8rem}
+
+.hero-minimal-bar{
+  display:flex;align-items:center;gap:1.2rem;
+  margin-top:1.5rem;padding:.55rem 1.1rem;
+  background:rgba(12,12,18,.75);border:1px solid var(--line);
+  border-radius:99px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+}
+.hero-mini-status{font-size:.72rem;color:var(--dim);letter-spacing:.12em;cursor:pointer}
+.hero-mini-status strong{color:var(--red)}
+.float-nav-btn{
+  background:none;border:none;color:var(--dim);font-size:.9rem;
+  padding:.2rem .4rem;transition:color .2s, transform .2s;
+}
+.float-nav-btn:hover{color:var(--amber);transform:scale(1.15)}
+
+/* FLOATING 3D POSTER CARDS (LEFT & RIGHT) */
+.hero-float-wrapper{
+  display:flex;justify-content:center;align-items:center;
+  perspective:1000px;
+}
+.float-left-wrapper{animation:float-left 6s ease-in-out infinite}
+.float-right-wrapper{animation:float-right 7s ease-in-out infinite}
+
+@keyframes float-left{
+  0%, 100%{transform:translateY(0px) rotate(-2deg)}
+  50%{transform:translateY(-14px) rotate(1deg)}
+}
+@keyframes float-right{
+  0%, 100%{transform:translateY(0px) rotate(2deg)}
+  50%{transform:translateY(-16px) rotate(-1deg)}
+}
+
+.float-poster-card{
+  width:210px;border-radius:16px;padding:.85rem;
+  background:linear-gradient(145deg, rgba(22,22,34,.78), rgba(12,12,18,.88));
+  border:1px solid rgba(255,255,255,.14);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  box-shadow:0 20px 45px rgba(0,0,0,.65), 0 0 25px rgba(229,39,62,.15);
+  cursor:pointer;position:relative;overflow:hidden;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1), border-color .3s, box-shadow .3s;
+}
+.float-poster-card:hover, .float-poster-card:focus-visible{
+  transform:scale(1.06) translateY(-6px);
+  border-color:rgba(255,181,71,.55);
+  box-shadow:0 28px 60px rgba(0,0,0,.8), 0 0 35px rgba(255,181,71,.3);
+  outline:none;
+}
+
+.float-poster-aura{
+  position:absolute;inset:-30%;z-index:0;
+  background:radial-gradient(circle, rgba(229,39,62,.4) 0%, transparent 70%);
+  opacity:.6;filter:blur(18px);pointer-events:none;
+  transition:background .4s ease;
+}
+
+.float-poster-img-wrap{
+  position:relative;width:100%;aspect-ratio:2/3;
+  border-radius:10px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.1);z-index:1;
+}
+.float-poster-img-wrap img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .4s ease, opacity .3s ease;
+}
+.float-poster-card:hover img{transform:scale(1.05)}
+
+.float-poster-badge{
+  position:absolute;top:.5rem;right:.5rem;z-index:2;
+  background:rgba(5,5,7,.85);border:1px solid rgba(255,181,71,.4);
+  border-radius:4px;padding:.15rem .4rem;font-size:.55rem;color:var(--amber);
+  backdrop-filter:blur(6px);
+}
+
+.float-poster-info{
+  margin-top:.7rem;text-align:left;position:relative;z-index:1;
+}
+.float-poster-seq{display:block;font-size:.6rem;color:var(--red);letter-spacing:.15em;margin-bottom:.15rem}
+.float-poster-title{
+  font-family:var(--font-display);font-size:1.02rem;font-weight:600;
+  letter-spacing:.03em;color:#fff;line-height:1.15;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.float-poster-action{
+  display:inline-block;font-size:.58rem;color:var(--dim);letter-spacing:.12em;margin-top:.35rem;
+  transition:color .2s;
+}
+.float-poster-card:hover .float-poster-action{color:var(--amber)}
 
 .hero-byline{
   color:var(--dimmer);font-size:.62rem;letter-spacing:.24em;margin-bottom:1.1rem;
@@ -743,6 +841,17 @@ body.shake{animation:body-shake .4s}
 }
 
 /* ============ RESPONSIVE ============ */
+@media (max-width:1100px){
+  .hero-minimal-layout{grid-template-columns:170px 1fr 170px;gap:1rem}
+  .float-poster-card{width:170px;padding:.65rem}
+  .float-poster-title{font-size:.9rem}
+}
+
+@media (max-width:960px){
+  .hero-minimal-layout{grid-template-columns:1fr;gap:2rem}
+  .hero-float-wrapper{display:none}
+}
+
 @media (max-width:820px){
   .nav-status{display:none}
   #nav-toggle{display:block;margin-left:auto}
